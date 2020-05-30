@@ -6,5 +6,8 @@ module "example" {
     domain_name = "app.example.com"
     zone_id = "123456"
 }
-
 ```
+
+## Output
+
+* certificate_arn
