@@ -2,7 +2,7 @@
 
 ```sh
 module "example" {
-    source          = "git::https://gitlab.woopidi.net/terraform/cloudfront-s3.git"
+    source          = "git@github.com:woopidi/terraform-aws-ssl-certificate.git"
     domain_name     = "app.example.com"
     zone_id         = "123456"
 }
