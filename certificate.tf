@@ -17,10 +17,13 @@ resource "aws_acm_certificate" "certificate" {
 # Create a rDNS record to validate the certificate 
 resource "aws_route53_record" "certificate_record" {
   zone_id = var.zone_id
-  ttl     = 60
-  name    = aws_acm_certificate.certificate.domain_validation_options.0.resource_record_name
-  type    = aws_acm_certificate.certificate.domain_validation_options.0.resource_record_type
-  records = [aws_acm_certificate.certificate.domain_validation_options.0.resource_record_value]
+
+  record {
+    ttl     = 60
+    name    = aws_acm_certificate.certificate.domain_validation_options.0.resource_record_name
+    type    = aws_acm_certificate.certificate.domain_validation_options.0.resource_record_type
+    records = [aws_acm_certificate.certificate.domain_validation_options.0.resource_record_value]
+  }
 }
 
 # Validate the certificate
